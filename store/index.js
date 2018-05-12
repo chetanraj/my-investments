@@ -18,7 +18,7 @@ const store = () => {
         ]
     },
     mutations: {
-        saveInvestment(state, investment) {
+        saveInvestment (state, investment) {
             investment.id = uuidv1();
             state.investments = state.investments.concat(investment);
 
