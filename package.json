@@ -13,14 +13,16 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
+    "@nuxtjs/google-analytics": "^2.0.2",
+    "babel-plugin-component": "^1.1.1",
     "bootstrap": "^4.0.0-beta.2",
     "bootstrap-vue": "^1.0.2",
     "nuxt": "^1.0.0",
     "uuid": "^3.2.1"
   },
   "devDependencies": {
-    "cross-env": "^5.0.1",
     "babel-eslint": "^8.2.1",
+    "cross-env": "^5.0.1",
     "eslint": "^4.15.0",
     "eslint-loader": "^2.0.0",
     "eslint-plugin-vue": "^4.0.0"
