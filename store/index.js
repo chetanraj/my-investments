@@ -1,11 +1,14 @@
 import Vuex from 'vuex';
 import localStorage from '~/plugins/localStorage';
 import uuidv1 from 'uuid/v1'
+import currencies from './currencies'
 
 const store = () => {
   return new Vuex.Store({
     state: {
         investments: [],
+        currency: currencies.INR,
+        currencies: currencies,
         frequency: [
           { text: 'Select One', value: null },
           { text: 'Daily', value: 0.03},
@@ -30,6 +33,9 @@ const store = () => {
         removeInvestment (state, id) {
             state.investments = state.investments.filter(investment => investment.id !== id);
             localStorage.set(state.investments);
+        },
+        changeCurrency(state, newCurrency = currencies.INR) {
+            state.currency = newCurrency;
         }
     },
     getters: {
@@ -40,6 +46,9 @@ const store = () => {
       getFrequency: state => value => {
           const frequency = state.frequency.find(p => p.value === value);
           return frequency.text;
+      },
+      getCurrency: state => {
+          return state.currency.currency;
       }
     }
   });
