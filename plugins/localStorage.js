@@ -1,4 +1,4 @@
-const NAME = 'my-investments';
+const NAME = 'my-payments';
 
 export default {
   set: obj =>

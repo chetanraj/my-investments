@@ -22,7 +22,7 @@ test.before('Init Nuxt.js', async t => {
 test('Route / exits and render HTML', async t => {
   let context = {}
   const { html } = await nuxt.renderRoute('/', context)
-  t.true(html.includes('<title data-n-head="true">My Investments</title>'))
+  t.true(html.includes('<title data-n-head="true">My Payments</title>'))
 })
 
 // Example of testing via DOM checking
@@ -30,7 +30,7 @@ test('Route / exits and render HTML with CSS applied', async t => {
   const window = await nuxt.renderAndGetWindow('http://localhost:4000/')
   const element = window.document.querySelector('.text-white')
   t.not(element, null)
-  t.is(element.textContent, 'My Investments')
+  t.is(element.textContent, 'My Payments')
   t.is(element.className, 'navbar-brand float-left text-white')
 })
 
