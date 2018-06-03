@@ -6,44 +6,46 @@ import currencies from './currencies'
 const store = () => {
   return new Vuex.Store({
     state: {
-        payments: [],
+        investments: [],
         currency: currencies.INR,
         currencies: currencies,
-        payfrom: [
-            { text: 'Select One', value: null },
-            { text: 'ICICI'},
-            { text: 'SBI'},
-            { text: 'AXIS'},
-            { text: 'DBS'},
-            { text: 'KBL'}
-          ]
+        frequency: [
+          { text: 'Select One', value: null },
+          { text: 'Daily', value: 0.03},
+          { text: 'Weekly', value: 0.25},
+          { text: 'Fortnightly', value: 0.5},
+          { text: 'Monthly', value: 1},
+          { text: 'Quarterly', value: 3},
+          { text: 'Half Yearly', value: 6},
+          { text: 'Yearly', value: 12}
+        ]
     },
     mutations: {
-        savePayment (state, payment) {
-            payment.id = uuidv1();
-            state.payments = state.payments.concat(payment);
+        saveInvestment (state, investment) {
+            investment.id = uuidv1();
+            state.investments = state.investments.concat(investment);
 
-            localStorage.set(state.payments);
+            localStorage.set(state.investments);
         },
-        getPayments (state, payments) {
-            state.payments = payments;
+        getInvestments (state, investments) {
+            state.investments = investments;
         },
-        removePayment (state, id) {
-            state.payments = state.payments.filter(payment => payment.id !== id);
-            localStorage.set(state.payments);
+        removeInvestment (state, id) {
+            state.investments = state.investments.filter(investment => investment.id !== id);
+            localStorage.set(state.investments);
         },
         changeCurrency(state, newCurrency = currencies.INR) {
             state.currency = newCurrency;
         }
     },
     getters: {
-      getTotalPayment: state => {
-        const value = state.payments.reduce((acc, payment) => acc + payment.amount / payment.frequency, 0);
+      getTotalInvestment: state => {
+        const value = state.investments.reduce((acc, payment) => acc + payment.amount / payment.frequency, 0);
         return parseFloat(value).toFixed(2);
       },
-      getPayFrom: state => value => {
-          const payfrom = state.payfrom.find(p => p.value === value);
-          return payfrom.text;
+      getFrequency: state => value => {
+          const frequency = state.frequency.find(p => p.value === value);
+          return frequency.text;
       },
       getCurrency: state => {
           return state.currency.currency;
