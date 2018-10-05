@@ -51,6 +51,7 @@ module.exports = {
     /*
     ** You can extend webpack config here
     */
+    maxChunkSize: 300000,
     extend(config, ctx) {
       // Run ESLint on save
       if (ctx.isDev && ctx.isClient) {
