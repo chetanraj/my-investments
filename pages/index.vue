@@ -3,7 +3,7 @@
     <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
         <div class="navbar-header col-12 text-center">
-          <a class="navbar-brand" href="#">My Investments</a>
+          <a class="navbar-brand brand-label" href="#">My Investments</a>
           <span class="navbar-brand float-left float-sm-right float-md-right float-lg-right text-white d-none">Total Investment / Month: {{$store.getters.getTotalInvestment}}</span>
           <div class="currency">
             <b-form-select v-on:change="changeCurrency" :value="getCurrency" :options="$store.state.currencies" class="mb-3" size="sm" />

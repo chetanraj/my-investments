@@ -28,10 +28,9 @@ test('Route / exits and render HTML', async t => {
 // Example of testing via DOM checking
 test('Route / exits and render HTML with CSS applied', async t => {
   const window = await nuxt.renderAndGetWindow('http://localhost:4000/')
-  const element = window.document.querySelector('.text-white')
+  const element = window.document.querySelector('.brand-label')
   t.not(element, null)
   t.is(element.textContent, 'My Investments')
-  t.is(element.className, 'navbar-brand float-left text-white')
 })
 
 // Close the Nuxt server
