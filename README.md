@@ -1,3 +1,3 @@
 # my-investments
 
-![my-investment](https://raw.githubusercontent.com/chetanraj/my-investments/master/assets/screen.png)
+[![Build Status](https://travis-ci.com/chetanraj/my-investments.svg?branch=master)](https://travis-ci.com/chetanraj/my-investments)
